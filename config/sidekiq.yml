@@ -1,0 +1,4 @@
+:schedule:
+  cleaning_worker:
+    every: '10m'   # Runs once per ten minute
+    class: CleaningWorker
