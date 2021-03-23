@@ -1,13 +1,13 @@
-2.times do
-  d = Diary.create({title: Faker::Name.name, kind: rand(0..1), expiration: Faker::Time.between(from: Date.today, to: Date.today + 14.days)})
+2.times do |i|
+  diary = Diary.create({title: "Diary #{i}", kind: rand(0..1), expiration: DateTime.now + rand(1..30).minutes})
   3.times do
-    d.notes.create({text: Faker::Lorem.paragraph})
+    diary.notes.create({text: "Random text"})
   end
 end
 
-2.times do
-  d = Diary.create({title: Faker::Name.name, kind: rand(0..1), expiration: DateTime.now + 10.minutes})
+2.times do |i|
+  diary = Diary.create({title: "Diary #{i}", kind: rand(0..1), expiration: DateTime.now + 10.minutes})
   3.times do
-    d.notes.create({text: Faker::Lorem.paragraph})
+    diary.notes.create({text: "Random text"})
   end
 end
